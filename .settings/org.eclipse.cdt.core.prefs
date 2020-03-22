@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+environment/project/0.391195468/PATH/delimiter=\:
+environment/project/0.391195468/PATH/operation=replace
+environment/project/0.391195468/PATH/value=/usr/bin\:/bin\:/usr/sbin\:/sbin\:/Applications/Arduino.app/Contents/Java/hardware/tools/avr/bin
+environment/project/0.391195468/append=true
+environment/project/0.391195468/appendContributed=true
