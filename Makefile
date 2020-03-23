@@ -81,8 +81,9 @@ install: flash fuse
 load: all
 	bootloadHID grbl.hex
 
+# JMW clean also removes the hex-file in the build-target  folder
 clean:
-	rm -f grbl.hex $(BUILDDIR)/*.o $(BUILDDIR)/*.d $(BUILDDIR)/*.elf
+	rm -f grbl.hex $(BUILDDIR)/*.o $(BUILDDIR)/*.d $(BUILDDIR)/*.elf $(BUILDDIR)/GRBL/grbl.hex
 
 # file targets:
 $(BUILDDIR)/main.elf: $(OBJECTS)
@@ -92,6 +93,7 @@ grbl.hex: $(BUILDDIR)/main.elf
 	rm -f grbl.hex
 	avr-objcopy -j .text -j .data -O ihex $(BUILDDIR)/main.elf grbl.hex
 	avr-size --format=berkeley $(BUILDDIR)/main.elf
+	cp grbl.hex $(BUILDDIR)/GRBL/grbl.hex  # JMW copy hex-file to target in build folder, for Eclipse's Arduino plugin
 # If you have an EEPROM section, you must also create a hex file for the
 # EEPROM and add it to the "flash" target.
 
